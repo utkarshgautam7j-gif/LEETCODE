@@ -27,7 +27,7 @@ class Solution {
 
 }
 */
-// IN my both approach TLE so i used gpt for this [learn about this approach and dominate this that's it]
+// IN my both approach TLE so i used gpt for this [learn about this approach or make new one and dominate this that's it]
 /*
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
