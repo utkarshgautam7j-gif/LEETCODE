@@ -2,7 +2,7 @@ class Solution {
     public void moveZeroes(int[] nums) {
 
         
-        int x = nums.length ;
+        //int x = nums.length ;
         // int [] arr = new int [x];
         int k = 0;
         for (int i : nums){
