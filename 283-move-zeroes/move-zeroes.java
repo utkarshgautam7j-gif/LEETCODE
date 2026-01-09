@@ -16,7 +16,7 @@ class Solution {
             nums[k] = 0;
             k++;
         }
-        System.out.println(Arrays.toString(nums));
+        //System.out.println(Arrays.toString(nums));
         
     }
 }
