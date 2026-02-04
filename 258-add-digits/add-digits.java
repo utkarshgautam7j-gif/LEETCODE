@@ -17,11 +17,11 @@ class Solution {
     }
 }
 */
+
+/*
 class Solution {
     public int addDigits(int num) {
-        return recur(num);
-
-        
+        return recur(num);       
     }
     private static int recur(int n){
         int sum=0;
@@ -32,8 +32,16 @@ class Solution {
             sum=sum+(n%10);
             n=n/10;
         }
-        return recur(sum);
+        return recur(sum);        
+    }
+}
+*/
 
-        
+class Solution {
+    public int addDigits(int num) {
+        if (num == 0) return 0;
+        if(num%9==0) return 9;
+
+        return (num%9);
     }
 }
