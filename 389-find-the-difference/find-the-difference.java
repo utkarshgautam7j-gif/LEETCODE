@@ -1,3 +1,5 @@
+/*
+
 import java.util.Arrays;
 class Solution {
     public char findTheDifference(String s, String t) {
@@ -13,5 +15,22 @@ class Solution {
         }
         return t1[(t1.length)-1];
 
+    }
+}
+
+*/
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int sum = 0;
+
+        for(char c : t.toCharArray()){
+            sum += c;
+        }
+
+        for(char c : s.toCharArray()){
+            sum -= c;
+        }
+
+        return (char) sum;
     }
 }
