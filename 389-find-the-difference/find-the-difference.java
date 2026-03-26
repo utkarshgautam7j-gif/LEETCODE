@@ -1,5 +1,3 @@
-/*
-
 import java.util.Arrays;
 class Solution {
     public char findTheDifference(String s, String t) {
@@ -18,7 +16,7 @@ class Solution {
     }
 }
 
-*/
+/*
 class Solution {
     public char findTheDifference(String s, String t) {
         int sum = 0;
@@ -34,3 +32,4 @@ class Solution {
         return (char) sum;
     }
 }
+*/
