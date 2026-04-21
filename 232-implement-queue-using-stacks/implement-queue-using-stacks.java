@@ -35,7 +35,7 @@ class MyQueue {
         int ans = st.peek();
 
       
-        st2.push(st.pop());
+       // st2.push(st.pop());
 
       
         while (!st2.isEmpty()) {
