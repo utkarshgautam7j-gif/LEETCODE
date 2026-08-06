@@ -17,7 +17,7 @@ class Solution {
     public TreeNode invertTree(TreeNode root) {
 
         if(root==null) return root;
-        invertTree(root.left);
+        invertTree(root.left);  // we can use these 2 stmt after swap lines but both will work differently although final ans is same smj donoo ko 
         invertTree(root.right);
         TreeNode temp=root.left;
         root.left=root.right;
