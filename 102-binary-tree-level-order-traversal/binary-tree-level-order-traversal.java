@@ -1,28 +1,37 @@
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> list = new ArrayList<>();
 
-        Level(root, list, 0);
+        List<List<Integer>> ans = new ArrayList<>();
 
-        return list;
+        Map<Integer, List<Integer>> map = new HashMap<>();
+
+        Level(root, 0, map);
+
+        for (int i = 0; i < map.size(); i++) {
+            ans.add(map.get(i));
+        }
+
+        return ans;
     }
 
-    private void Level(TreeNode root, List<List<Integer>> list, int level) {
+    private void Level(TreeNode root, int level,
+                       Map<Integer, List<Integer>> map) {
 
         if (root == null) {
             return;
         }
 
-        if (level == list.size()) {
-            list.add(new ArrayList<>());
+        if (!map.containsKey(level)) {
+            map.put(level, new ArrayList<>());
         }
 
-        list.get(level).add(root.val);
+    
+        map.get(level).add(root.val);
 
-        
-        Level(root.left, list, level + 1);
 
-        
-        Level(root.right, list, level + 1);
+        Level(root.left, level + 1, map);
+
+  
+        Level(root.right, level + 1, map);
     }
 }
