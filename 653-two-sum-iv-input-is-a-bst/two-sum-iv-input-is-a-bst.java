@@ -17,13 +17,13 @@ class Solution {
     public boolean findTarget(TreeNode root, int k) {
         List<Integer> l = new ArrayList<>();
         inorder(root,l);
-        m:
-        for(int i=0;i<l.size();i++){
-            for(int j=i+1;j<l.size();j++){
-                if(l.get(i)+l.get(j)==k) return true;
-                if(l.get(i)+l.get(j)>k){
-                    continue m ;
-                }
+        int i=0;
+        int j=l.size()-1;
+        while(i<j){
+            if(l.get(i)+l.get(j)==k) return true;
+            else if (l.get(i)+l.get(j)>k) j--;
+            else{
+                i++;
             }
         }
         return false;
