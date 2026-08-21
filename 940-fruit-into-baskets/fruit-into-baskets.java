@@ -3,9 +3,9 @@ class Solution {
 
         if (fruits.length <= 2) return fruits.length;
 
-        int[] arr = new int[2];
-        arr[0] = fruits[0];
-        arr[1] = fruits[1];
+        
+        int f1 = fruits[0];
+        int f2 = fruits[1];
 
         int c = 2;
         int max = 2;
@@ -18,18 +18,18 @@ class Solution {
 
         for (int i = 2; i < fruits.length; i++) {
 
-            if (arr[0] == fruits[i]) {
+            if (f1 == fruits[i]) {
                 c++;
             }
-            else if (arr[1] == fruits[i]) {
+            else if (f2 == fruits[i]) {
                 c++;
             }
             else {
-                if (last == arr[0]) {
-                    arr[1] = fruits[i];
+                if (last == f1) {
+                    f2 = fruits[i];
                 }
                 else {
-                    arr[0] = fruits[i];
+                    f1 = fruits[i];
                 }
 
                 c = lastCount + 1;
