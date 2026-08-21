@@ -9,8 +9,6 @@ class Solution {
 
         int c = 2;
         int max = 2;
-
-        // Last consecutive fruit and its count
         int last = fruits[1];
         int lastCount = 1;
 
@@ -27,7 +25,6 @@ class Solution {
                 c++;
             }
             else {
-                // Third fruit encountered
                 if (last == arr[0]) {
                     arr[1] = fruits[i];
                 }
@@ -35,11 +32,10 @@ class Solution {
                     arr[0] = fruits[i];
                 }
 
-                // Keep previous consecutive last fruit + new fruit
                 c = lastCount + 1;
             }
 
-            // Update last consecutive fruit count
+            
             if (fruits[i] == last) {
                 lastCount++;
             }
