@@ -1,17 +1,21 @@
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
-        int c=0;
-        
-        for(int i=0;i<nums.length;i++){
-            int sum=0;
-           for(int j=i;j<nums.length;j++){
-                sum+=nums[j];
-                if(sum==goal) c++;
-                else if(sum>goal){
-                    break;
-                }
-           }
+         return atmost(nums,goal)-atmost(nums,goal-1);
+    }
+    public int atmost(int [] nums,int goal){
+        int left=0;
+        int sum=0;
+        int count =0;
+        for(int right=0;right<nums.length;right++){
+            if (goal < 0) return 0;
+            sum+=nums[right];
+
+            while(sum>goal){
+                sum-=nums[left];
+                left++;
+            }
+            count =count+right-left+1;
         }
-        return c;
+        return count;
     }
 }
