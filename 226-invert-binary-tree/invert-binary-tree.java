@@ -12,6 +12,9 @@
  *         this.right = right;
  *     }
  * }
+
+ this is slightly different traversal (concept then preorder or postorder ) 
+ for preorder and postorder checkout gfg mirror image question 
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
