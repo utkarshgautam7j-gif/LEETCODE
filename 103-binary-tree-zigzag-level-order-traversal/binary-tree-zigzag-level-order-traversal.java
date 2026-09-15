@@ -15,35 +15,41 @@
  */
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> ans = new ArrayList<>();
-        if(root==null) return ans;
+        List<List<Integer>>ans = new ArrayList<>();
+        List<Integer> arr= new ArrayList<>();
+        bfs(root,arr,ans);
+        return ans;
 
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        q.offer(null);
-        List<Integer> temp = new ArrayList<>();
+    }
+    private static void bfs(TreeNode root,List<Integer> arr,List<List<Integer>>ans){
+        Deque<TreeNode>q = new LinkedList<>();
+
+         if(root == null) return;
+
+        q.add(root);  
         int flag =0;
+
         while(!q.isEmpty()){
-            TreeNode t = q.poll();
-            if(t==null){
-                ans.add(temp);
-                temp = new ArrayList<>();
-                flag=1-flag;
-
-                if(!q.isEmpty()) q.offer(null);
-            }
-            else{
+            int size =q.size();
+            arr=new ArrayList<>();
+            TreeNode n;
+            while(size-- >0){
                 if(flag==0){
-                    temp.add(t.val);
-
+                    n =q.removeFirst();
+                    arr.add(n.val);
+                    if(n.left!=null)q.addLast(n.left);
+                    if(n.right!=null)q.addLast(n.right);
                 }
                 else{
-                    temp.add(0,t.val);
+                    n=q.removeLast();
+                    arr.add(n.val);
+                    if(n.right!=null)q.addFirst(n.right);
+                    if(n.left!=null)q.addFirst(n.left);
                 }
-                if(t.left!=null) q.offer(t.left);
-                if(t.right != null) q.offer(t.right);
             }
+            ans.add(arr);
+            flag=1-flag;
         }
-        return ans;
+
     }
 }
