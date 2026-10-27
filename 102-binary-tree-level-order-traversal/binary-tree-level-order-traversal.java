@@ -1,37 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-
         List<List<Integer>> ans = new ArrayList<>();
+        if(root==null) return ans;
 
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        Queue<TreeNode> q = new LinkedList <>();
+        q.offer(root);
 
-        Level(root, 0, map);
+        while(!q.isEmpty()){
+            int size =q.size();
 
-        for (int i = 0; i < map.size(); i++) {
-            ans.add(map.get(i));
+            List<Integer> level = new ArrayList<>();
+            for(int i =0;i<size;i++){
+                TreeNode node = q.poll();
+                level.add(node.val);
+                if(node.left!=null){
+                    q.offer(node.left);
+                }
+                if(node.right!=null){
+                    q.offer(node.right);
+                }
+            }
+            ans.add(level);
         }
-
         return ans;
-    }
-
-    private void Level(TreeNode root, int level,
-                       Map<Integer, List<Integer>> map) {
-
-        if (root == null) {
-            return;
-        }
-
-        if (!map.containsKey(level)) {
-            map.put(level, new ArrayList<>());
-        }
-
-    
-        map.get(level).add(root.val);
-
-
-        Level(root.left, level + 1, map);
-
-  
-        Level(root.right, level + 1, map);
     }
 }
